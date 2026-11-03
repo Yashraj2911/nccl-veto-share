@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ego Funeral vs Perfect Read — map card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,460;0,6..72,560;1,6..72,460&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1814;
+    --muted: #5e584e;
+    --faint: #8a8274;
+    --paper: #f6f1e6;
+    --sheet: #fbf7ef;
+    --line: #d9d0c0;
+    --ban: #9c2f1a;
+    --pick: #1f6b3a;
+    --warn: #8a5a12;
+    --bar: #1a1814;
+    --even: #c8bfae;
+  }
+  * { box-sizing: border-box; }
+  html { background: #e6dfd1; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: "IBM Plex Sans", Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 28px 18px 64px; }
+  header.mast {
+    background: var(--ink);
+    color: #f6f1e6;
+    padding: 28px 28px 24px;
+  }
+  .kicker {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #c8bfae;
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-family: Newsreader, Georgia, serif;
+    font-weight: 460;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  h1 em { font-style: italic; font-weight: 460; color: #e7d7a1; }
+  .sub { margin: 14px 0 0; max-width: 62ch; color: #ddd4c4; }
+  .nums {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #3a342c;
+    margin-top: 22px;
+  }
+  .num { background: #14120f; padding: 14px 16px 12px; }
+  .num b {
+    display: block;
+    font-family: Newsreader, Georgia, serif;
+    font-size: 34px;
+    font-weight: 560;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .num span { display: block; margin-top: 6px; color: #c8bfae; font-size: 12px; line-height: 1.35; }
+  main { background: var(--sheet); border: 1px solid #cfc6b6; border-top: 0; padding: 8px 0 28px; }
+  section { padding: 22px 28px 6px; }
+  h2 {
+    font-family: Newsreader, Georgia, serif;
+    font-weight: 560;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
+  }
+  h3 {
+    font-family: Newsreader, Georgia, serif;
+    font-size: 20px;
+    font-weight: 560;
+    margin: 18px 0 6px;
+  }
+  p { margin: 0 0 10px; }
+  .lede { font-size: 17px; max-width: 68ch; }
+  .note { color: var(--muted); font-size: 13px; }
+  .call {
+    margin: 18px 28px 0;
+    padding: 16px 18px;
+    background: #f3e6c8;
+    border-left: 4px solid var(--ink);
+  }
+  .call strong { font-family: Newsreader, Georgia, serif; font-size: 20px; font-weight: 560; display: block; margin-bottom: 4px; }
+  ol.veto { list-style: none; margin: 12px 0 0; padding: 0; }
+  ol.veto li {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 10px;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+  }
+  ol.veto li b { font-size: 13px; letter-spacing: 0.08em; }
+  .tag {
+    display: inline-block;
+    min-width: 52px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 0;
+  }
+  .tag.ban { color: var(--ban); }
+  .tag.pick { color: var(--pick); }
+  .tag.wait { color: var(--warn); }
+  .bars { margin-top: 8px; }
+  .bar-row { display: grid; grid-template-columns: 88px 1fr 52px; gap: 10px; align-items: center; margin: 7px 0; }
+  .bar-row span { font-size: 13px; }
+  .track { height: 10px; background: #ebe4d6; position: relative; }
+  .fill { height: 10px; background: var(--bar); }
+  .even-mark {
+    position: absolute; left: 50%; top: -3px; bottom: -3px; width: 1px; background: var(--ban);
+  }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 6px; font-size: 14px; }
+  th {
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    padding: 8px 8px 6px 0;
+    border-bottom: 1px solid var(--ink);
+  }
+  td { padding: 7px 8px 7px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .pos { color: var(--pick); font-weight: 600; }
+  .neg { color: var(--ban); font-weight: 600; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .loss { background: #f8ebe6; }
+  footer {
+    padding: 8px 28px 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer p { margin-bottom: 8px; }
+  @media (max-width: 800px) {
+    .nums, .split { grid-template-columns: 1fr 1fr; }
+    header.mast, section, .call, footer { padding-left: 16px; padding-right: 16px; }
+    .call { margin-left: 16px; margin-right: 16px; }
+    table { font-size: 13px; }
+  }
+  @media (max-width: 560px) {
+    .nums { grid-template-columns: 1fr 1fr; }
+    .split { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <p class="kicker">NCCL Season 1 · Playoff best of three · 5 Nov 2026 · 6:00 PM IST</p>
+    <h1>Ego Funeral<br><em>against</em> Perfect Read</h1>
+    <p class="sub">Winner goes to the grand final. Both sides are 6–2 on maps. The score model calls it even. The player tape says do not play Inferno into Rio, and do not play Anubis at all.</p>
+    <div class="nums">
+      <div class="num"><b>51%</b><span>Ego Funeral series win on this card. Likely range 35–64%.</span></div>
+      <div class="num"><b>54%</b><span>If Nuke stays open and Ego Funeral picks it. Range 40–65%.</span></div>
+      <div class="num"><b>+67</b><span>Rio’s kill difference in eight maps. Next best on either team is GodFather at +38.</span></div>
+      <div class="num"><b>2</b><span>Maps Perfect Read has lost. Inferno 5–13, and Nuke 19–22.</span></div>
+    </div>
+  </header>
+  <main>
+    <div class="call">
+      <strong>Ban Anubis. Pick Nuke if it is open. If they ban Nuke, pick Ancient. Ban Cache second.</strong>
+      Perfect Read has lost Inferno 5–13 to Indian Gamers and Nuke 19–22 to Blood Pact. They won the Nuke series anyway. They are 3–0 on Anubis.
+    </div>
+
+    <section>
+      <h2>The veto</h2>
+      <p class="lede">Ego Funeral is the 3–0 side, so this assumes they ban first. Perfect Read is assumed to take the map that hurts Ego Funeral most.</p>
+      <ol class="veto">
+        <li><b>01</b><div><span class="tag ban">Ban</span> <strong>Anubis.</strong> Their only 3–0, rounds 39–19. Rio is +21, -SoM is +14, and OSTRION is −19 for Ego Funeral.</div></li>
+        <li><b>02</b><div><span class="tag wait">They ban</span> <strong>Nuke,</strong> if they are sharp. It is Ego Funeral’s best score-model map at 55%. GodFather is +16 and Jinxx is +15. Oh yeah is −25 for Perfect Read. If Nuke survives, pick it and skip step 3.</div></li>
+        <li><b>03</b><div><span class="tag pick">Pick</span> <strong>Ancient.</strong> Ego Funeral is 2–0, Sk +9 and Vanta +5, and Perfect Read has not played it in this tournament.</div></li>
+        <li><b>04</b><div><span class="tag wait">They pick</span> <strong>Inferno.</strong> Rio is 57–25 there, including 21–7 in the map his team lost 5–13. The score model still calls Inferno 54% for Ego Funeral. The players overrule that pick.</div></li>
+        <li><b>05</b><div><span class="tag ban">Ban</span> <strong>Cache.</strong> The only Ego Funeral sample is a 6–13 loss to Tooo Op. GodFather was +5. OSTRION was 10–17. Jinxx was 9–15.</div></li>
+        <li><b>06</b><div><span class="tag pick">Decider</span> <strong>Mirage or Dust II,</strong> both about 49%. Nobody in the season has played Mirage. Neither of these teams has played Dust II.</div></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Chance Ego Funeral wins the map</h2>
+      <p>Each bar is the margin-weighted Bradley-Terry estimate against Perfect Read. The red tick is 50. These come from all 31 completed maps in the season, not from the two teams alone. A 13–11 counts less than a 13–2, and a one-map sample is pulled back toward the team’s season rating.</p>
+      <div class="bars">
+        <div class="bar-row"><span>Nuke</span><div class="track"><i class="even-mark"></i><div class="fill" style="width:54.5%"></div></div><span class="n">55%</span></div>
+        <div class="bar-row"><span>Inferno</span><div class="track"><i class="even-mark"></i><div class="fill" style="width:53.6%"></div></div><span class="n">54%</span></div>
+        <div class="bar-row"><span>Dust II</span><div class="track"><i class="even-mark"></i><div class="fill" style="width:49.4%"></div></div><span class="n">49%</span></div>
+        <div class="bar-row"><span>Mirage</span><div class="track"><i class="even-mark"></i><div class="fill" style="width:49.4%"></div></div><span class="n">49%</span></div>
+        <div class="bar-row"><span>Ancient</span><div class="track"><i class="even-mark"></i><div class="fill" style="width:48.5%"></div></div><span class="n">49%</span></div>
+        <div class="bar-row"><span>Anubis</span><div class="track"><i class="even-mark"></i><div class="fill" style="width:43.9%"></div></div><span class="n">44%</span></div>
+        <div class="bar-row"><span>Cache</span><div class="track"><i class="even-mark"></i><div class="fill" style="width:43.8%"></div></div><span class="n">44%</span></div>
+      </div>
+      <p class="note">Resample bands, 10th to 90th of 400 series bootstraps: Nuke 45–61, Inferno 41–63, Dust II and Mirage 39–59, Ancient 39–58, Anubis 36–53, Cache 34–56. The bars sit near 50 because eight maps a side cannot support a 70% call.</p>
+    </section>
+
+    <section>
+      <h2>Players, all eight maps</h2>
+      <p>Kill lines exist for every map. Average damage is only counted when the damage feed looks complete. That is 6 or 7 maps for Ego Funeral and 3 maps for Perfect Read, so their ADR is a sample.</p>
+      <table>
+        <thead>
+          <tr><th>Player</th><th>Team</th><th class="n">K–D–A</th><th class="n">+/−</th><th class="n">K/D</th><th class="n">ADR</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Rio</td><td>Perfect Read</td><td class="n">171–104–52</td><td class="n pos">+67</td><td class="n">1.64</td><td class="n">89 on 3</td></tr>
+          <tr><td>GodFather</td><td>Ego Funeral</td><td class="n">190–152–56</td><td class="n pos">+38</td><td class="n">1.25</td><td class="n">100</td></tr>
+          <tr><td>-SoM</td><td>Perfect Read</td><td class="n">138–122–31</td><td class="n pos">+16</td><td class="n">1.13</td><td class="n">86 on 3</td></tr>
+          <tr><td>Jinxx</td><td>Ego Funeral</td><td class="n">151–141–33</td><td class="n pos">+10</td><td class="n">1.07</td><td class="n">72</td></tr>
+          <tr><td>Kr4Zzy_</td><td>Perfect Read</td><td class="n">129–123–37</td><td class="n pos">+6</td><td class="n">1.05</td><td class="n">89 on 3</td></tr>
+          <tr><td>SamarthGS</td><td>Perfect Read</td><td class="n">128–125–38</td><td class="n pos">+3</td><td class="n">1.02</td><td class="n">74 on 3</td></tr>
+          <tr><td>Vanta</td><td>Ego Funeral</td><td class="n">152–150–42</td><td class="n">+2</td><td class="n">1.01</td><td class="n">76</td></tr>
+          <tr><td>Sk</td><td>Ego Funeral</td><td class="n">143–145–54</td><td class="n neg">−2</td><td class="n">0.99</td><td class="n">79</td></tr>
+          <tr><td>Oh yeah</td><td>Perfect Read</td><td class="n">89–123–42</td><td class="n neg">−34</td><td class="n">0.72</td><td class="n">62 on 3</td></tr>
+          <tr><td>OSTRION</td><td>Ego Funeral</td><td class="n">125–163–39</td><td class="n neg">−38</td><td class="n">0.77</td><td class="n">66</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Rounds played: Ego Funeral 209, Perfect Read 174. K/D is kills divided by deaths.</p>
+
+      <h3>Kill difference on each map</h3>
+      <p>Sum of kills minus deaths. A dash means that team has not played the map. This is why Ancient is the pick and Inferno is theirs.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th class="n">Anubis</th>
+            <th class="n">Inferno</th>
+            <th class="n">Nuke</th>
+            <th class="n">Ancient</th>
+            <th class="n">Cache</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Rio</td><td class="n pos">+21</td><td class="n pos">+32</td><td class="n pos">+14</td><td class="n">—</td><td class="n">—</td></tr>
+          <tr><td>-SoM</td><td class="n pos">+14</td><td class="n pos">+3</td><td class="n neg">−1</td><td class="n">—</td><td class="n">—</td></tr>
+          <tr><td>SamarthGS</td><td class="n pos">+1</td><td class="n pos">+14</td><td class="n neg">−12</td><td class="n">—</td><td class="n">—</td></tr>
+          <tr><td>Kr4Zzy_</td><td class="n neg">−5</td><td class="n pos">+10</td><td class="n pos">+1</td><td class="n">—</td><td class="n">—</td></tr>
+          <tr><td>Oh yeah</td><td class="n neg">−9</td><td class="n">0</td><td class="n neg">−25</td><td class="n">—</td><td class="n">—</td></tr>
+          <tr><td>GodFather</td><td class="n pos">+16</td><td class="n">—</td><td class="n pos">+16</td><td class="n pos">+1</td><td class="n pos">+5</td></tr>
+          <tr><td>Jinxx</td><td class="n pos">+13</td><td class="n">—</td><td class="n pos">+15</td><td class="n neg">−12</td><td class="n neg">−6</td></tr>
+          <tr><td>Sk</td><td class="n pos">+8</td><td class="n">—</td><td class="n neg">−16</td><td class="n pos">+9</td><td class="n neg">−3</td></tr>
+          <tr><td>Vanta</td><td class="n neg">−7</td><td class="n">—</td><td class="n pos">+6</td><td class="n pos">+5</td><td class="n neg">−2</td></tr>
+          <tr><td>OSTRION</td><td class="n neg">−19</td><td class="n">—</td><td class="n neg">−2</td><td class="n neg">−10</td><td class="n neg">−7</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Perfect Read sample sizes: Anubis 3, Inferno 3, Nuke 2. Ego Funeral: Anubis 3, Nuke 2, Ancient 2, Cache 1. Sk is −16 on Nuke, so the Nuke pick is GodFather and Jinxx, not the whole lineup. Oh yeah at −25 is the crack on that map for Perfect Read.</p>
+    </section>
+
+    <section>
+      <div class="split">
+        <div>
+          <h2>Maps Perfect Read lost</h2>
+          <table>
+            <thead><tr><th>Map</th><th>Score</th><th>Opponent</th></tr></thead>
+            <tbody>
+              <tr class="loss"><td>Inferno</td><td>5–13</td><td>Indian Gamers, 31 Oct. Series lost 1–2. Rio still went 21–7.</td></tr>
+              <tr class="loss"><td>Nuke</td><td>19–22</td><td>Blood Pact, 2 Nov. Series won 2–1. Oh yeah was 13–35.</td></tr>
+            </tbody>
+          </table>
+          <p class="note">The other six maps were wins: Anubis 13–7, 13–5, 13–7, Inferno 13–5 and 13–2, Nuke 13–11.</p>
+        </div>
+        <div>
+          <h2>What the series number is</h2>
+          <p>51% is Ancient as Ego Funeral’s pick, Inferno as Perfect Read’s pick, and Mirage or Dust II as the decider. The bootstrap range on that trio is 35% to 64%.</p>
+          <p>That 51% still treats Inferno as a 54% Ego Funeral map. Rio’s 57–25 is outside that model, so if the series reaches Inferno, expect the match to play harder than 51%.</p>
+          <p>Leaving Anubis and Cache both live drops the score-model series to 46%.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Every map</h2>
+      <table>
+        <thead><tr><th>Team</th><th>Map</th><th>Result</th><th class="n">Rounds</th><th>Opponent</th><th>Date</th></tr></thead>
+        <tbody>
+          <tr><td>Perfect Read</td><td>Anubis</td><td>Win</td><td class="n">13–7</td><td>Indian Gamers</td><td>31 Oct</td></tr>
+          <tr class="loss"><td>Perfect Read</td><td>Inferno</td><td>Loss</td><td class="n">5–13</td><td>Indian Gamers</td><td>31 Oct</td></tr>
+          <tr><td>Perfect Read</td><td>Nuke</td><td>Win</td><td class="n">13–11</td><td>Indian Gamers</td><td>31 Oct</td></tr>
+          <tr><td>Perfect Read</td><td>Anubis</td><td>Win</td><td class="n">13–5</td><td>Cruel Supremacy</td><td>1 Nov</td></tr>
+          <tr><td>Perfect Read</td><td>Inferno</td><td>Win</td><td class="n">13–5</td><td>Cruel Supremacy</td><td>1 Nov</td></tr>
+          <tr><td>Perfect Read</td><td>Inferno</td><td>Win</td><td class="n">13–2</td><td>Blood Pact</td><td>2 Nov</td></tr>
+          <tr class="loss"><td>Perfect Read</td><td>Nuke</td><td>Loss</td><td class="n">19–22</td><td>Blood Pact</td><td>2 Nov</td></tr>
+          <tr><td>Perfect Read</td><td>Anubis</td><td>Win</td><td class="n">13–7</td><td>Blood Pact</td><td>2 Nov</td></tr>
+          <tr class="loss"><td>Ego Funeral</td><td>Cache</td><td>Loss</td><td class="n">6–13</td><td>Tooo Op</td><td>31 Oct</td></tr>
+          <tr><td>Ego Funeral</td><td>Anubis</td><td>Win</td><td class="n">13–10</td><td>Tooo Op</td><td>31 Oct</td></tr>
+          <tr><td>Ego Funeral</td><td>Nuke</td><td>Win</td><td class="n">16–14</td><td>Tooo Op</td><td>31 Oct</td></tr>
+          <tr><td>Ego Funeral</td><td>Nuke</td><td>Win</td><td class="n">13–11</td><td>Team Next Level</td><td>1 Nov</td></tr>
+          <tr class="loss"><td>Ego Funeral</td><td>Anubis</td><td>Loss</td><td class="n">17–19</td><td>Team Next Level</td><td>1 Nov</td></tr>
+          <tr><td>Ego Funeral</td><td>Ancient</td><td>Win</td><td class="n">19–16</td><td>Team Next Level</td><td>1 Nov</td></tr>
+          <tr><td>Ego Funeral</td><td>Anubis</td><td>Win</td><td class="n">13–6</td><td>Frag Executors</td><td>3 Nov</td></tr>
+          <tr><td>Ego Funeral</td><td>Ancient</td><td>Win</td><td class="n">13–10</td><td>Frag Executors</td><td>3 Nov</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Group table: Ego Funeral 3–0, 9 points, rounds 110–99. Perfect Read 2–1, 6 points, rounds 102–72.</p>
+    </section>
+
+    <footer>
+      <p>Built from the NCCL Season 1 database, group stage 31 Oct–3 Nov 2026, plus the Active Duty pool as of 2 Nov 2026: Ancient, Anubis, Cache, Dust II, Inferno, Mirage, Nuke. Mirage never appears in the 31 maps, so the event may be on the other six. On a six-map pool, Dust II is the decider and the bans stay the same.</p>
+      <p>Map percentages: each win is weighted 0.40 + 0.60 × margin / (margin + 6). Every team gets two pseudo-wins and two pseudo-losses against an average side. Each map rating is shrunk toward the season rating by 2.5 prior maps. Ranges come from 400 resamples of whole series. Round-share, fit separately, still ranks Perfect Read first in the league and puts Ego Funeral near a 43% round rate. That is why this is a coin flip and not a favorite.</p>
+    </footer>
+  </main>
+</div>
+</body>
+</html>
